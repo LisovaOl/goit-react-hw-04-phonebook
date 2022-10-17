@@ -12,6 +12,7 @@ export const App = () => {
     >
       phonebook
       Hello Olena
+      New
     </div>
   );
 };
