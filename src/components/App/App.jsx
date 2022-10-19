@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import shortid from 'shortid';
-
 
 import ContactsList from '../ContactsList/ContactsList';
 import ContactForm from '../ContactForm/ContactForm';
+
+import { Title } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -35,7 +36,7 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <h1>PhoneBook</h1>
+        <Title>PhoneBook</Title>
         <ContactForm onSubmit={this.addContact} />
         <br />
         <ContactsList
@@ -48,6 +49,4 @@ export class App extends Component {
   }
 }
 
-export default App
-
-
+export default App;
