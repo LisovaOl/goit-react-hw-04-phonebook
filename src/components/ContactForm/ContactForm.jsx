@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { Form, Label, Button, Input } from './ContactForm.styled';
+
 export class ContactForm extends Component {
-  state = {
-      name: '',
-      number: '',
+  
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
   };
+
+  state = {
+    name: '',
+    number: '',
+  };
+
   handleChange = e => {
     console.log(e.currentTarget.value);
     this.setState({ [e.currentTarget.name]: e.currentTarget.value });
@@ -13,10 +22,11 @@ export class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    this.props.onSubmit(this.state); // 2. text from App 
+    this.props.onSubmit(this.state); // 2. text from App
 
-    this.setState({ name: '', number:'' }); // 3. reset field
+    this.setState({ name: '', number: '' }); // 3. reset field
   };
+
   render() {
     return (
       <div>

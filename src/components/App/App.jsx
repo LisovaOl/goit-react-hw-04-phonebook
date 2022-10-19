@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import shortid from 'shortid';
 
 import ContactsList from '../ContactsList/ContactsList';
@@ -7,6 +9,12 @@ import ContactForm from '../ContactForm/ContactForm';
 import { Title } from './App.styled';
 
 export class App extends Component {
+
+  static propTypes = {
+    contacts: PropTypes.array,
+    // filter: PropTypes.string,
+  };
+
   state = {
     contacts: [],
   };
@@ -27,6 +35,7 @@ export class App extends Component {
       }));
     }
   };
+
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
@@ -34,6 +43,7 @@ export class App extends Component {
   };
 
   render() {
+    
     return (
       <div>
         <Title>PhoneBook</Title>

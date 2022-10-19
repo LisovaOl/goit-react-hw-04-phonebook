@@ -7,19 +7,20 @@ export const Title = styled.p`
 `;
 
 export const List = styled.ul`
-text-align: center;
+  text-align: center;
+`;
 
-`
 export const Item = styled.li`
-margin-top: 20px;
+  margin-top: 20px;
 `;
 
 export const Name = styled.span`
-margin-right: 10px;
-text-transform: capitalize;
-font-style: italic;
-font-size: 20px;
+  margin-right: 10px;
+  text-transform: capitalize;
+  font-style: italic;
+  font-size: 20px;
 `;
+
 export const Number = styled.span`
   font-size: 20px;
   margin-right: 20px;
@@ -29,4 +30,3 @@ export const Button = styled.button`
   font-size: 15px;
   background-color: #aed8ed;
 `;
-

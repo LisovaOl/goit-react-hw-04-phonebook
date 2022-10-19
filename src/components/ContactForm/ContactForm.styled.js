@@ -5,6 +5,7 @@ export const Form = styled.form`
   margin-top: 30px;
   font-size: 25px;
 `;
+
 export const Button = styled.button`
   font-size: 15px;
   width: 150px;
