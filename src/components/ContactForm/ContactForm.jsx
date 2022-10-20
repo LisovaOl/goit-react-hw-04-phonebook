@@ -15,13 +15,13 @@ export class ContactForm extends Component {
   };
 
   handleChange = e => {
-    console.log(e.currentTarget.value);
+    // console.log(e.currentTarget.value);
     this.setState({ [e.currentTarget.name]: e.currentTarget.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     this.props.onSubmit(this.state); // 2. text from App
 
     this.setState({ name: '', number: '' }); // 3. reset field

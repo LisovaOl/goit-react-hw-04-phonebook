@@ -5,11 +5,10 @@ import shortid from 'shortid';
 
 import ContactsList from '../ContactsList/ContactsList';
 import ContactForm from '../ContactForm/ContactForm';
-
+import Filter from '../Filter/Filter';
 import { Title } from './App.styled';
 
 export class App extends Component {
-
   static propTypes = {
     contacts: PropTypes.array,
     // filter: PropTypes.string,
@@ -17,6 +16,7 @@ export class App extends Component {
 
   state = {
     contacts: [],
+    filter: '',
   };
 
   addContact = data => {
@@ -41,17 +41,27 @@ export class App extends Component {
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
+  onChangeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
 
+  getFiltredContacts = () => {
+    const normalizedFilter = this.state.filter.toLowerCase();
+    return this.state.contacts.filter(cont =>
+      cont.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
   render() {
-    
+
     return (
       <div>
         <Title>PhoneBook</Title>
         <ContactForm onSubmit={this.addContact} />
         <br />
+        <Filter value={this.state.filter} onChange={this.onChangeFilter} />
+
         <ContactsList
-          contacts={this.state.contacts}
-          name={this.state.name}
+          contacts={this.getFiltredContacts()}
           onDeleteContact={this.deleteContact}
         />
       </div>
