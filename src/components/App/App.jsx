@@ -6,7 +6,7 @@ import shortid from 'shortid';
 import ContactsList from '../ContactsList/ContactsList';
 import ContactForm from '../ContactForm/ContactForm';
 import Filter from '../Filter/Filter';
-import { Title } from './App.styled';
+import { Title, ContactsTitle } from './App.styled';
 
 export class App extends Component {
   static propTypes = {
@@ -57,7 +57,7 @@ export class App extends Component {
       <div>
         <Title>PhoneBook</Title>
         <ContactForm onSubmit={this.addContact} />
-        <br />
+        <ContactsTitle>Contacts</ContactsTitle>
         <Filter value={this.state.filter} onChange={this.onChangeFilter} />
 
         <ContactsList

@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
-export const Title = styled.p`
-  text-align: center;
-  margin-top: 30px;
-  font-size: 25px;
-`;
+// export const Title = styled.p`
+//   text-align: center;
+//   margin-top: 30px;
+//   font-size: 25px;
+// `;
 
 export const List = styled.ul`
   text-align: center;
