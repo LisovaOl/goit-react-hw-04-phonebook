@@ -16,7 +16,7 @@
 3. Измени имя папки с `react-homework-template` на имя своего проекта.
 4. Создай новый пустой репозиторий на GitHub.
 5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
+   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-regit remote set-url origin https://github.com/USERNAME/REPOSITORY.gitmote-repositorys-url).
 6. Установи базовые зависимости проекта командой `npm install`.
 7. Запусти режим разработки, выполнив команду `npm start`.
 8. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
