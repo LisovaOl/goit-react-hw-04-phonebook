@@ -15,7 +15,8 @@ export class App extends Component {
   };
 
   state = {
-    contacts: JSON.parse(localStorage.getItem('contacts')) || [],
+    contacts: [],
+    // contacts: JSON.parse(localStorage.getItem('contacts')) || [],
     filter: '',
   };
 
@@ -53,24 +54,21 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    const contactsLocal = localStorage.getItem('contacts'); // обєкт приходить як строка. надо распарсить
-    // const parsedContacts = JSON.parse(contacts); // не работает
-    console.log(contactsLocal);
-    // console.log(parsedContacts);
+    const contacts = localStorage.getItem('contacts');
+    const parsedСontacts = JSON.parse(contacts);
+// Перевірка на наявність даних в storage
+    if (parsedСontacts) {
+      this.setState({ contacts: parsedСontacts });
+    }
   }
-
   // 1-local
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('add update');
     if (this.state.contacts !== prevState.contacts) {
-      // 2-local проверка на одновление
-      console.log('contacts обновилось ');
+      // 2-local проверка на обновление
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts)); // 3-local storage
       // setState ставить нельзя только при проверке
     }
-    console.log(prevState);
-    console.log(this.state);
   }
 
   render() {
