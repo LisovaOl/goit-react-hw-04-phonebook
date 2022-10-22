@@ -11,7 +11,7 @@ import { Title, ContactsTitle } from './App.styled';
 export class App extends Component {
   static propTypes = {
     contacts: PropTypes.array,
-    // filter: PropTypes.string,
+    filter: PropTypes.string,
   };
 
   state = {
