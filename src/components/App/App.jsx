@@ -9,11 +9,6 @@ import Filter from '../Filter/Filter';
 import { Title, ContactsTitle } from './App.styled';
 
 export class App extends Component {
-  static propTypes = {
-    contacts: PropTypes.array,
-    filter: PropTypes.string,
-  };
-
   state = {
     contacts: [],
     // contacts: JSON.parse(localStorage.getItem('contacts')) || [],
@@ -56,7 +51,7 @@ export class App extends Component {
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
     const parsedСontacts = JSON.parse(contacts);
-// Перевірка на наявність даних в storage
+    // Перевірка на наявність даних в storage
     if (parsedСontacts) {
       this.setState({ contacts: parsedСontacts });
     }
