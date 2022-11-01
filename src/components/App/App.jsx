@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import shortid from 'shortid';
 
@@ -8,7 +8,9 @@ import Filter from '../Filter/Filter';
 import { Title, ContactsTitle } from './App.styled';
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(
+    JSON.parse(window.localStorage.getItem('contacts')) ?? []
+  );
   const [filter, setFilter] = useState('');
 
   const addContact = data => {
@@ -25,12 +27,11 @@ export default function App() {
   };
 
   const deleteContact = contactId => {
-    setContacts(contacts.filter(contact => contact.id !== contactId))
-    }
-  
+    setContacts(contacts.filter(contact => contact.id !== contactId));
+  };
 
   const onChangeFilter = e => {
-    setFilter(e.currentTarget.value );
+    setFilter(e.currentTarget.value);
   };
 
   const getFiltredContacts = () => {
@@ -39,24 +40,9 @@ export default function App() {
       cont.name.toLowerCase().includes(normalizedFilter)
     );
   };
-
-  // componentDidMount() {
-  //   const contacts = localStorage.getItem('contacts');
-  //   const parsedСontacts = JSON.parse(contacts);
-  //   // Перевірка на наявність даних в storage
-  //   if (parsedСontacts) {
-  //     this.setState({ contacts: parsedСontacts });
-  //   };
-  // }
-  // 1-local
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.contacts !== prevState.contacts) {
-  //     // 2-local проверка на обновление
-  //     localStorage.setItem('contacts', JSON.stringify(this.state.contacts)); // 3-local storage
-  //     // setState ставить нельзя только при проверке
-  //   };
-  // }
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  });
 
   return (
     <div>
